@@ -1,9 +1,3 @@
-const json = (status, body) => ({
-  statusCode: status,
-  headers: { "Content-Type": "application/json; charset=utf-8" },
-  body: JSON.stringify(body),
-});
-
 const value = (input, maxLength = 500) =>
   typeof input === "string" ? input.trim().slice(0, maxLength) : "";
 
@@ -23,7 +17,8 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Please provide your name and a valid email." });
   }
 
-  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+  const supabaseKey = process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!process.env.SUPABASE_URL || !supabaseKey) {
     return res.status(503).json({
       error: "Signups are not configured yet. Please email hello@variantfestival.com.",
     });
@@ -31,13 +26,15 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(
-      `${process.env.SUPABASE_URL.replace(/\/$/, "")}/rest/v1/interest_submissions`,
+      `${process.env.SUPABASE_URL.replace(/\/$/, "")}/rest/v1/waitlist_entries?on_conflict=email`,
       {
         method: "POST",
         headers: {
-          apikey: process.env.SUPABASE_SERVICE_ROLE_KEY,
-          Authorization: `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY}`,
+          apikey: supabaseKey,
+          Authorization: `Bearer ${supabaseKey}`,
           "Content-Type": "application/json",
+          "Content-Profile": "variant",
+          "Accept-Profile": "variant",
           Prefer: "resolution=merge-duplicates,return=minimal",
         },
         body: JSON.stringify({ name, email, city: city || null, interest: interest || null, note: note || null }),

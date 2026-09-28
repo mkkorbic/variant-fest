@@ -18,9 +18,10 @@ Open `index.html` in a browser to view the site.
 
 ## Deploy to Vercel
 
-1. Create a Supabase project when you are ready to collect real signups.
-2. Run [`supabase/schema.sql`](supabase/schema.sql) in the Supabase SQL editor.
-3. Add `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` to Vercel project environment variables. Do not put the service-role key in the site or commit it.
+1. Create a dedicated Supabase project for VARIANT. Keep unrelated MVPs in separate Supabase projects—the strongest data boundary.
+2. In **Project Settings → Data API**, add `variant` to **Exposed schemas**.
+3. Run [`supabase/schema.sql`](supabase/schema.sql) in the Supabase SQL editor.
+4. Add `SUPABASE_URL` and `SUPABASE_SECRET_KEY` to Vercel project environment variables. Never commit or expose the secret key.
 4. Import this Git repository into Vercel, or run `vercel` from this directory after logging in.
 
 Until those two environment variables are configured, the form responds with a clear email fallback rather than pretending a signup was saved.

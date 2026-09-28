@@ -10,6 +10,10 @@ Starter site for VARIANT, an AI film, motion, and visual-art festival.
 - `css/` — styles when the inline stylesheet is separated
 - `js/` — scripts when the inline JavaScript is separated
 
+## Add visual content
+
+Add a logo, local images, remote image URLs, or MP4 videos through [`js/content.js`](js/content.js). The featured-work slider automatically appears after at least one media item has a `src`; it stays hidden until then.
+
 Open `index.html` in a browser to view the site.
 
 ## Deploy to Vercel

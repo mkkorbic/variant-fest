@@ -24,3 +24,11 @@ Open `index.html` in a browser to view the site.
 4. Import this Git repository into Vercel, or run `vercel` from this directory after logging in.
 
 Until those two environment variables are configured, the form responds with a clear email fallback rather than pretending a signup was saved.
+
+This project includes a local Node runtime and Vercel CLI, so no system-wide installation is required. From the project folder, use:
+
+```sh
+./scripts/vercel.sh
+```
+
+The first run will ask you to log in to Vercel and create or link a Vercel project. Use `./scripts/vercel.sh --prod` when you are ready for the public production deployment.

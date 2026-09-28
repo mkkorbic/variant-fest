@@ -18,3 +18,7 @@ window.VARIANT_CONTENT = {
     // },
   ],
 };
+
+// Optional: add your Cloudflare Turnstile site key to activate CAPTCHA.
+// Keep the matching secret key in Vercel only, as TURNSTILE_SECRET_KEY.
+window.VARIANT_FORM_PROTECTION = { turnstileSiteKey: "" };

@@ -26,6 +26,10 @@ Open `index.html` in a browser to view the site.
 
 Until those two environment variables are configured, the form responds with a clear email fallback rather than pretending a signup was saved.
 
+## Form protection
+
+The form includes a hidden bot trap, a short human-fill-time check, and same-origin verification. To add CAPTCHA protection, create a Cloudflare Turnstile widget, put its site key in `js/content.js`, and add its secret key as `TURNSTILE_SECRET_KEY` in Vercel. For global IP-based rate limiting, add a shared rate-limit service before a large public campaign.
+
 This project includes a local Node runtime and Vercel CLI, so no system-wide installation is required. From the project folder, use:
 
 ```sh

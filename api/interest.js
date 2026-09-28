@@ -35,7 +35,7 @@ export default async function handler(req, res) {
   const supabaseKey = process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!process.env.SUPABASE_URL || !supabaseKey) {
     return res.status(503).json({
-      error: "Signups are not configured yet. Please email hello@variantfestival.com.",
+      error: "Signups are not configured yet. Please email hello@variantfest.com.",
     });
   }
 

@@ -1,0 +1,14 @@
+{
+  "name": "variant-festival",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VARIANT festival website",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel",
+    "deploy:production": "vercel --prod"
+  },
+  "devDependencies": {
+    "vercel": "^60.1.3"
+  }
+}

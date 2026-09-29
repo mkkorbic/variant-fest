@@ -58,7 +58,7 @@
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || "Something went wrong.");
-      show("You’re on the founding list. We’ll be in touch with open-call details.");
+      show("You’re on the founding list. We’ll be in touch with open call details.");
       button.textContent = "You’re in";
       form.reset();
     } catch (error) {

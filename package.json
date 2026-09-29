@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vercel dev",
     "deploy": "vercel",
-    "deploy:production": "vercel --prod"
+    "deploy:production": "vercel --prod",
+    "publish": "./scripts/publish.sh"
   },
   "devDependencies": {
     "vercel": "^60.1.3"
